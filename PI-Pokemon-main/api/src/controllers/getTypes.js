@@ -1,18 +1,24 @@
-// const { Type } = require("../models/Type");
-const { Type, Pokemon } = require("../db");
+const { Type } = require("../db"); // Importa el modelo Type desde tu archivo de base de datos (db.js)
 const axios = require("axios");
-// Definir la URL de la API de tipos de Pokemon
 
-// Controlador para obtener y almacenar los tipos de Pokemon
+// Controlador para obtener y almacenar los tipos de Pokémon
 const getTypes = async () => {
-  const URL = `https://pokeapi.co/api/v2/type`;
   try {
-    // Obtener tipos de la API
+    // Verificar si ya existen tipos en la base de datos
+    const existingTypes = await Type.findAll();
+
+    // Si ya existen tipos en la base de datos, simplemente devuelve esos tipos
+    if (existingTypes.length > 0) {
+      return existingTypes;
+    }
+
+    // Si no existen tipos en la base de datos, solicita los tipos desde la API
+    const URL = `https://pokeapi.co/api/v2/type`;
     const response = await axios.get(URL);
-    const typesFromAPI = response.data.results.map((type) => type.name);
+    const typesFromAPI = response.data.results.map((type) => ({ name: type.name }));
 
     // Guardar tipos en la base de datos
-    const createdTypes = await Type.bulkCreate(typesFromAPI.map((typeName) => ({ name: typeName })));
+    const createdTypes = await Type.bulkCreate(typesFromAPI);
 
     return createdTypes;
   } catch (error) {

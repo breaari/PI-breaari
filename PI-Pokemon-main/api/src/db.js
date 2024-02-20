@@ -10,7 +10,7 @@ const sequelize = new Sequelize(
 
    `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/pokemon`,
 
-   { logging: true, native: false }
+   { logging: false, native: false }
 );
 
 // ejecutar la función de los modelos.
