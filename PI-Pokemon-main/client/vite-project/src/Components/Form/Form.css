@@ -1,0 +1,109 @@
+.form-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background-color: rgba(109, 160, 145, 0.9);
+  border: 5px solid black;
+  border-radius: 30px;
+}
+
+.text {
+  font-size: 25px;
+}
+
+.form-create {
+  flex: 1; /* El formulario ocupa todo el espacio disponible en el contenedor */
+  display: flex;
+  
+  
+}
+
+.column-input {
+  flex:1;
+  width: 50%; /* Cada columna ocupa el 50% del ancho del contenedor del formulario */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.column-error {
+  flex: 1;
+  width: 50%; /* Cada columna ocupa el 50% del ancho del contenedor del formulario */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.error {
+  padding: 8px;
+  border-radius: 20px;
+  font-size: 15px;
+  height: 15px;
+  width: 275px;
+  margin-bottom: -1px;
+  font-weight: bold;
+}
+
+.error:first-child {
+  margin-top: -40px; /* Reiniciar el margen superior del primer elemento .error */
+}
+
+
+.valid-error {
+  color: green; /* Fondo verde para errores válidos */
+
+}
+
+.invalid-error {
+  color: rgb(138, 11, 11); /* Fondo rojo para errores inválidos */
+}
+
+.invalid-error::before {
+  content: '❌'; /* Emoji para errores inválidos */
+  margin-right: 5px; /* Espacio entre el emoji y el texto del error */
+}
+
+.valid-error::before {
+  content: '✅'; /* Emoji para errores válidos */
+  margin-right: 5px; /* Espacio entre el emoji y el texto del error */
+}
+
+.inputt {
+  padding: 8px;
+  border: 1px solid #dadada;
+  border-radius: 4px;
+  width: 250px;
+  height: 35px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.inputt::placeholder {
+  color: #777;
+  font-style: cursive;
+}
+
+.select-types {
+  width: 250px;
+}
+
+.create-pokemon {
+  color: #777;
+  width: 150px;
+  height: 35px;
+  margin-top:20px;
+  background-color: white;
+  border: 1px solid #dadada;
+  border-radius: 4px;
+}

@@ -1,0 +1,93 @@
+.form-container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+    background-color: transparent;
+  }
+  
+  form2 {
+    margin-top: 5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 150px; /* Ajusta el tamaño del logo según tus necesidades */
+    margin-right: 100px; /* Ajusta el margen derecho según tu diseño */
+    margin-left: 10px; 
+  }
+  
+
+  .button-submit {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    border: none;
+    cursor: pointer;
+    background-image: url('../../assets/search.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent; 
+    
+  }
+  
+.input-container2 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: rgba(14, 44, 2, 0.5);
+    width: 400px;
+    height: 35px;
+    border-radius: 4px;
+    border: 1px solid white;
+    margin-left: 150px;
+    margin-right: 150px; 
+  }
+
+.input-search{
+    flex: 1;
+    height: 30px;
+    width: 350px;
+    border: none ;
+    padding: 15px ;
+    color: white;
+    background-color: transparent; 
+  }
+  
+  .input-search::placeholder {
+    color: white;
+  }
+  
+  .input-search:focus {
+    outline: none; 
+  }
+  
+  .create-button {
+    background-color: rgba(14, 44, 2, 0.5);
+    border: 1px solid white;
+    border-radius: 4px;
+    width: 85px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    overflow: hidden; /* Evita que la imagen se desborde del botón */
+    transition: transform 0.2s ease; /* Duración de la transición */
+    margin-left: 165px; /* Aumenta el margen izquierdo */
+  margin-right: 10px; /* Agrega un margen derecho */
+  }
+  
+  .create-button img {
+    margin-left: 5px;
+    max-width: 20px; /* Establece el ancho máximo de la imagen */
+  height: auto; /* Mantiene la proporción de la imagen */
+  }
+
+  .create-button:active {
+    transform: scale(0.95); /* Reducir el tamaño al hacer clic */
+  }
+  

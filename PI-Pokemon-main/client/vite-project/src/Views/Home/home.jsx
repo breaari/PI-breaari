@@ -1,15 +1,17 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
-import SearchBar from "../../Components/Searchbar"
+import SearchBar from "../../Components/SearchBar/Searchbar"
+import Cards from "../../Components/Cards/Cards"
+import useHome from "../../Hooks/useHome"
+import home from "../../assets/home.png"
+import "../Home/home.css"
 
-const Home = ({ onSearch }) => {
-  const pokemon = useSelector((state)=>state.pokemon.allPokemons)
-  console.log(pokemon)
-
+const Home = () => {
+  const arrayPoke = useHome()
   return (
-    <div>
-      <SearchBar onSearch={onSearch} />
-      {/* Otro contenido del componente Home */}
+    <div className="home-container">
+          {/* <div className= "home-image">
+          </div> */}
+      <SearchBar/>
+      <Cards arrayPoke = { arrayPoke }></Cards>
     </div>
   );
 }
