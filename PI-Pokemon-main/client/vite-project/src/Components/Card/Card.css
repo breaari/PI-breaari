@@ -30,14 +30,14 @@
 
 .name-card {
   margin-top: 0px;
-  margin-bottom: 5px; /* Reducir el margen inferior del nombre */
+  margin-bottom: 5px; 
   transform: translateY(250%);
 
   
 }
 
 .types-card {
-  margin-top: 0px; /* Reducir el margen superior de los tipos */
+  margin-top: 0px; 
   transform: translateY(350%);
   
 }

@@ -27,23 +27,23 @@ const Detail = () => {
     return ( 
         
         <div className="detail-container">
-            <div className="background-image"></div>
+          <div className="background-image"></div>
             <div className="content">
             <div className="image-detail">
                 <p className= 'name'>{pokeDetail?.name}</p>
                 <img className= 'image' src={pokeDetail?.image} alt={pokeDetail?.name} />
             </div>
             <div className="info-container">
-            <p className= 'detailInfo'>HP: {pokeDetail?.hp}</p>
-            <p className= 'detailInfo'>Attack: {pokeDetail?.attack}</p>
-            <p className= 'detailInfo'>Defense: {pokeDetail?.defense}</p>
-            <p className= 'detailInfo'>Speed: {pokeDetail?.speed}</p>
-            <p className= 'detailInfo'>Height: {pokeDetail?.height}</p>
-            <p className= 'detailInfo'>Weight: {pokeDetail?.weight}</p>
-            <p className= 'detailInfo'>Types: {pokeDetail?.types}</p>
+               <p className= 'detailInfo'>HP: {pokeDetail?.hp}</p>
+               <p className= 'detailInfo'>Attack: {pokeDetail?.attack}</p>
+               <p className= 'detailInfo'>Defense: {pokeDetail?.defense}</p>
+               <p className= 'detailInfo'>Speed: {pokeDetail?.speed}</p>
+               <p className= 'detailInfo'>Height: {pokeDetail?.height}</p>
+               <p className= 'detailInfo'>Weight: {pokeDetail?.weight}</p>
+               <p className= 'detailInfo'>Types: {pokeDetail?.types}</p>
             </div>
             </div>
-            </div>
+        </div>
             
     );
 };

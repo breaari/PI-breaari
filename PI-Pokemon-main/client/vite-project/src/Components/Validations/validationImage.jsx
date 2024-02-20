@@ -6,7 +6,6 @@ export const isImageValid = async (name) => {
   try {
     // Realizar una solicitud GET a la URL de la imagen
     const response = await axios.get(name);
-    console.log("response:", response)
     const regex = /.(gif|jpeg|jpg|png)$/i;
     // validar regex
     if (!regex.test(name)) {

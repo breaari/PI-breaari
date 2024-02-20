@@ -14,8 +14,8 @@
   }
   
   .logo {
-    width: 150px; /* Ajusta el tamaño del logo según tus necesidades */
-    margin-right: 100px; /* Ajusta el margen derecho según tu diseño */
+    width: 150px; 
+    margin-right: 100px; 
     margin-left: 10px; 
   }
   
@@ -75,19 +75,19 @@
     align-items: center;
     justify-content: center;
     color: white;
-    overflow: hidden; /* Evita que la imagen se desborde del botón */
-    transition: transform 0.2s ease; /* Duración de la transición */
-    margin-left: 165px; /* Aumenta el margen izquierdo */
-  margin-right: 10px; /* Agrega un margen derecho */
+    overflow: hidden; 
+    transition: transform 0.2s ease; 
+    margin-left: 165px; 
+    margin-right: 10px; 
   }
   
   .create-button img {
     margin-left: 5px;
-    max-width: 20px; /* Establece el ancho máximo de la imagen */
-  height: auto; /* Mantiene la proporción de la imagen */
+    max-width: 20px; 
+    height: auto;
   }
 
   .create-button:active {
-    transform: scale(0.95); /* Reducir el tamaño al hacer clic */
+    transform: scale(0.95); 
   }
   

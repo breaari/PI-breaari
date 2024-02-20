@@ -1,11 +1,10 @@
 .create-container {
-     /* Color de fondo para el área fuera del contenedor */
     display: flex;
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
+    justify-content: center; 
+    align-items: center;
     width: 100vw;
     height: 100vh;
-    background-image: url('../../assets/create.jpg'); /* Ruta de la imagen de fondo */
-    background-size: cover; /* Cubrir todo el espacio del contenedor */
-    background-position: center; /* Centrar la imagen de fondo */
+    background-image: url('../../assets/create.jpg'); 
+    background-size: cover; 
+    background-position: center;
   }

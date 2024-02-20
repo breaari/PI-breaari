@@ -8,21 +8,15 @@ const Card = ({ poke }) => {
       return ( 
         
         <div className="card-container" >
-            
             <div className= 'image-container'>
             <Link to={`/detail/${id}`} className="card-link">
-          
               <img className= 'image-card' src={image} alt={name}/>
               </Link>
             </div>
-            
-            
-              <h2 className= 'name-card no-underline'>{name}</h2>
-              
-              <p className= 'types-card no-underline'>{types}</p>
-              
-      </div>
-     
+            <h2 className= 'name-card no-underline'>{name}</h2>
+            <p className= 'types-card no-underline'>{types}</p>
+        </div>
+
   );
 };
 

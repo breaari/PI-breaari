@@ -6,21 +6,21 @@ import { isNameValid } from '../Validations/validationName';
 import { isImageValid } from '../Validations/validationImage';
 import { isNumberValid } from '../Validations/validationnumber';
 import Select from 'react-select'
+import { isValidType } from '../Validations/validationTypes';
 
 const CreateForm = () => {
   const [input, setInput] = useState({
-    name: undefined,
-    image: undefined,
-    hp: undefined,
-    attack: undefined,
-    defense: undefined,
-    speed: undefined,
-    height: undefined,
-    weight: undefined,
-    types: undefined
+    name: "",
+    image: "",
+    hp: "",
+    attack: "",
+    defense: "",
+    speed: "",
+    height: "",
+    weight: "",
+    types: ""
    });
 
-  const [selectTypes, setSelectTypes] = useState([]);
   const pokemonTypes = useTypes();
   const [inputError, setInputError] = useState({
 
@@ -32,33 +32,31 @@ const CreateForm = () => {
     speed: { valid: false, error: '' },
     height: { valid: false, error: '' },
     weight: { valid: false, error: '' },
+    types: { valid: false, error: '' },
 
 });
-  const handleTypeChange = (selectedOptions) => {
+
+  console.log("inputError:", inputError)
   
-    if (selectedOptions.length > 2) {
-      // Si se seleccionan más de 2 tipos, mostrar un mensaje de error o tomar alguna otra acción
-      window.alert('Por favor, selecciona como máximo dos tipos.');
-      return;
-    }
-    if (selectedOptions.length === 1 || selectedOptions.length === 2) {
-
-      let selectedTypes;
-    if (selectedOptions.length === 1) {
-        selectedTypes = selectedOptions[0].value;
-    } else if (selectedOptions.length === 2) {
-        selectedTypes = selectedOptions.map(option => option.value).join(' / ');
-    }
-    console.log("selectedTypes:", selectedTypes)
-    setSelectTypes(selectedTypes);
-
-    
-    setInput(prevInput => ({
-      ...prevInput,
-      types: selectedTypes
+  const handleTypeChange = async (selectedOptions) => {
+    // Valida las opciones seleccionadas
+    const { valid, error } = await isValidType(selectedOptions);
+    console.log("valid:", valid)
+  
+    // Actualiza el estado de error
+    setInputError((prevInputError) => ({
+      ...prevInputError,
+      types: { valid, error }
     }));
+  
+    // Actualiza el estado de input solo si las opciones son válidas
+    if (valid) {
+      setInput((prevInput) => ({
+        ...prevInput,
+        types: selectedOptions.value
+      }));
     }
-      }   
+  };
 
   const handleChange = async(e) => {
   
@@ -103,7 +101,7 @@ const CreateForm = () => {
             ...inputError, speed: { valid, error }})),
             setInput(prevInput => ({...prevInput, [name]: value
           }))};
-    if (name === 'height') {
+      if (name === 'height') {
           const { valid, error } = isNumberValid(value);
           setInputError(inputError => ({
             ...inputError, height: { valid, error }})),
@@ -116,9 +114,7 @@ const CreateForm = () => {
             setInput(prevInput => ({...prevInput, [name]: value
           }))};
     }
-
     
-console.log("input:", input)
   const handleSubmit = async (e) => {
   e.preventDefault();
 
@@ -132,7 +128,6 @@ console.log("input:", input)
   }
 
   try {
-
     const responseBack = await axios.post("http://localhost:3001/pokemons", input, {
       headers: {
         'Content-Type': 'application/json',
@@ -171,7 +166,7 @@ console.log("input:", input)
           <input className='inputt' name='speed' value={input.speed} onChange={handleChange} placeholder='  Speed'></input>
           <input className='inputt' name='height' value={input.height} onChange={handleChange} placeholder='  Height'></input>
           <input className='inputt' name='weight' value={input.weight} onChange={handleChange} placeholder='  Weight'></input>
-          <Select className= 'select-types' name= "types" isMulti menuPlacement= 'auto' options = {optionsTypes} onChange={ handleTypeChange} value ={ optionsTypes.id } placeholder= '  Types'></Select>
+          <Select className= 'select-types33' name= "types" menuPlacement= 'auto' options = {optionsTypes} onChange={ handleTypeChange} value ={ optionsTypes.id } placeholder= '  Types'></Select>
           <button className='create-pokemon' type="submit">Create</button>
         </div>
         <div className='column-error'>
@@ -183,7 +178,7 @@ console.log("input:", input)
           {inputError.speed && <p className={`error ${inputError.speed.valid ? 'valid-error' : 'invalid-error'}`}>{inputError.speed.error}</p>}
           {inputError.height && <p className={`error ${inputError.height.valid ? 'valid-error' : 'invalid-error'}`}>{inputError.height.error}</p>}
           {inputError.weight && <p className={`error ${inputError.weight.valid ? 'valid-error' : 'invalid-error'}`}>{inputError.weight.error}</p>}
-          
+          {inputError.types && <p className={`error ${inputError.types.valid ? 'valid-error' : 'invalid-error'}`}>{inputError.types.error}</p>}
     </div>
     </form>
     </div>

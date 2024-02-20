@@ -8,6 +8,6 @@ export const isNumberValid  = (value) => {
     if (!isNaN(value) && regex2.test(value)) {
       return { valid: true, error: 'Input válido.' };
     } else {
-      return false; // El valor no es válido
+      return false; 
     }
   }

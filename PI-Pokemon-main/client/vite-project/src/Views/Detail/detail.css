@@ -1,8 +1,8 @@
 .detail-container {
   position: relative;
   width: 100%;
-  height: 100vh; /* 100% del viewport height */
-  overflow: hidden; /* Para que la imagen de fondo no desborde del contenedor */
+  height: 100vh;
+  overflow: hidden; 
   display: flex;
 }
 
@@ -12,35 +12,35 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../../assets/detail.png'); /* Reemplaza 'ruta/de/la/imagen.jpg' por la ruta de tu imagen */
-  background-size: cover; /* La imagen de fondo se ajusta para cubrir todo el contenedor */
-  background-position: center; /* La imagen de fondo se centra */
-  opacity: 1; /* Opacidad de la imagen de fondo */
+  background-image: url('../../assets/detail.png'); 
+  background-size: cover; 
+  background-position: center; 
+  opacity: 1; 
 }
 
 .content {
   position: absolute;
   z-index: 1;
   display: flex;
-  justify-content: center; /* Centrar horizontalmente */
-  align-items: center; /* Centrar verticalmente */
-  height: 100%; /* 100% de la altura del contenedor */
+  justify-content: center; 
+  align-items: center;
+  height: 100%;
   width: 100%;
 }
 
 .image-detail {
-  text-align: center; /* Centrar el texto */
+  text-align: center; 
 }
 
 .image {
-  width: 400px; /* Ancho de la imagen */
-  height: auto; /* Altura ajustada automáticamente */
-  transform: translate(-10%, -10%); /* Centra la imagen */
+  width: 400px; 
+  height: auto;
+  transform: translate(-10%, -10%); 
 }
 
 .name {
-  text-transform: uppercase; /* Convertir el texto en mayúsculas */
-  font-size: 1.5em; /* Ajustar el tamaño de la letra según sea necesario */
+  text-transform: uppercase;
+  font-size: 1.5em; 
   font-weight: bold;
   transform: translate(10%, 80%);
   color: white;
@@ -49,40 +49,34 @@
 
 .info-container {
   display: flex;
-  flex-wrap: wrap; /* Permitir el ajuste de los elementos en varias líneas */
-  justify-content: space-between; /* Espaciado uniforme entre las columnas */
-  gap: 0px; /* Espacio entre los elementos */
+  flex-wrap: wrap; 
+  justify-content: space-between; 
+  gap: 0px; 
   width: 300px;
   height: 150px;
   transform: translate(22.5%, -30%);
   align-content: flex-start;
   margin-right: 75px;
-
 }
-
 
   .detailInfo {
     font-size: 1.5em;
     width: calc(50%);
-    height: calc(0%); /* Establecer el ancho de cada elemento para tres columnas */
+    height: calc(0%); 
     color: rgba(32, 8, 54, 0.822);
   text-shadow: 1px 1px rgb(32, 8, 54);
   font-weight: bold;
-  
   }
 
-
 .detailInfo:nth-child(-n+3) {
-  align-self: flex-end; /* Alinea los primeros 3 elementos a la derecha */
+  align-self: flex-end; 
 }
 
 .detailInfo:nth-child(n+4):nth-child(-n+6) {
-  align-self: flex-start; /* Alinea los siguientes 3 elementos a la izquierda */
-
+  align-self: flex-start; 
 }
 
 .detailInfo:last-child {
   width: 100%;
   text-align: center;
-  
 }

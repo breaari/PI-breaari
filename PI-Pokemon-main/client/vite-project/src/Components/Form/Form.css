@@ -18,31 +18,26 @@
 }
 
 .form-create {
-  flex: 1; /* El formulario ocupa todo el espacio disponible en el contenedor */
+  flex: 1; 
   display: flex;
-  
-  
 }
 
 .column-input {
   flex:1;
-  width: 50%; /* Cada columna ocupa el 50% del ancho del contenedor del formulario */
+  width: 50%; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
 }
 
 .column-error {
   flex: 1;
-  width: 50%; /* Cada columna ocupa el 50% del ancho del contenedor del formulario */
+  width: 50%; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-
 }
 
 .error {
@@ -56,27 +51,25 @@
 }
 
 .error:first-child {
-  margin-top: -40px; /* Reiniciar el margen superior del primer elemento .error */
+  margin-top: -40px; 
 }
 
-
 .valid-error {
-  color: green; /* Fondo verde para errores válidos */
-
+  color: green; 
 }
 
 .invalid-error {
-  color: rgb(138, 11, 11); /* Fondo rojo para errores inválidos */
+  color: rgb(138, 11, 11); 
 }
 
 .invalid-error::before {
-  content: '❌'; /* Emoji para errores inválidos */
-  margin-right: 5px; /* Espacio entre el emoji y el texto del error */
+  content: '❌'; 
+  margin-right: 5px; 
 }
 
 .valid-error::before {
-  content: '✅'; /* Emoji para errores válidos */
-  margin-right: 5px; /* Espacio entre el emoji y el texto del error */
+  content: '✅'; 
+  margin-right: 5px; 
 }
 
 .inputt {
@@ -94,7 +87,7 @@
   font-style: cursive;
 }
 
-.select-types {
+.select-types33 {
   width: 250px;
 }
 

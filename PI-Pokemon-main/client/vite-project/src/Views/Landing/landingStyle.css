@@ -1,10 +1,8 @@
-
 .landing-container {
 
     display: flex;
     height: 100vh;
     width: 100%;
-
   }
 
 .container-video {
@@ -15,7 +13,6 @@
  height: 100%;
  width: 100%;
  z-index: -1;
-
 }
 
 #background-video {
@@ -23,34 +20,31 @@
   height: 100%;
   object-fit: cover;
 }
+
 .button-container {
     position: absolute;
     top: 65%;
     left: 46.5%;
     transform: translate(-50%, -50%);
     border: none;
-    text-align: center; /* Alinea el contenido al centro horizontalmente */
+    text-align: center; 
   }
   
-  .start-button {
+.start-button {
 
-  cursor: pointer; /* Cambia el cursor al pasar por encima */
-  position: absolute; /* Posición absoluta para que se superponga al video */
-  top: 50%; /* Alinea verticalmente al centro */
-  left: 50%; /* Alinea horizontalmente al centro */
-  transform: translate(-52.5%, -50%); /* Centra el botón */
-  z-index: 1; /* Asegura que esté por encima del video */
-
-  /* Estilos de tamaño y padding */
-  width: 550px; /* Ancho del botón */
-  height: 350px; /* Alto del botón */
-  padding: 10px 20px; /* Padding interno del botón */
-
-  /* Transición de la transformación */
-  transition: transform 0.5s ease; 
-       
+  cursor: pointer; 
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-52.5%, -50%);
+  z-index: 1; 
+  width: 550px; 
+  height: 350px;
+  padding: 10px 20px; 
+  transition: transform 0.5s ease;     
   }
+
   .start-button:active {
-    transform: translate(-50%, -50%) scale(0.95); /* Reduce ligeramente la escala de la imagen */
+    transform: translate(-50%, -50%) scale(0.95);
   }
 

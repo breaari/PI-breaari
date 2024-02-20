@@ -8,8 +8,6 @@ const Home = () => {
   const arrayPoke = useHome()
   return (
     <div className="home-container">
-          {/* <div className= "home-image">
-          </div> */}
       <SearchBar/>
       <Cards arrayPoke = { arrayPoke }></Cards>
     </div>

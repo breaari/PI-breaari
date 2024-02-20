@@ -9,15 +9,15 @@ import { useEffect, useState } from 'react';
 import bulbasaurTransition from '../src/assets/bulbasaurTransition.gif'
 
 function App() {
-  const [showTransition, setShowTransition] = useState(true);
+  // const [showTransition, setShowTransition] = useState(true);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setShowTransition(false);
-    }, 3000); // Mostrar el video de transición durante 3 segundos
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     setShowTransition(false);
+  //   }, 3000); 
 
-    return () => clearTimeout(timeout);
-  }, []);
+  //   return () => clearTimeout(timeout);
+  // }, []);
 
   return (
     <>
