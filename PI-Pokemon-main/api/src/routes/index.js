@@ -1,14 +1,11 @@
 const { Router } = require('express');
-const express = require('express');
-const { 
-    getPokemonHandler, 
+const {  
     pokemonsDataHandler, 
     pokemonNameHandler, 
     getPokemonIDHandler,
     pokemonCreateHandler
  } = require("../handlers/getPokemonHandler")
  const { getTypeHandler } = require("../handlers/getTypesHandler")
-// Importar todos los routers;
 
 const router = Router();
 

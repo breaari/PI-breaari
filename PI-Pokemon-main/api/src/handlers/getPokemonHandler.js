@@ -19,7 +19,6 @@ try {
 
 const pokemonNameHandler = async (req, res) => {
     try {
-
     const { name } = req.params;
     const response = await getPokemonData(name);
         return res.status(200).json(response)
@@ -28,7 +27,6 @@ const pokemonNameHandler = async (req, res) => {
         return res.status(404).json( { error: "Error al obtener el Pokemon"})
     }
 }
-
 
 const pokemonsDataHandler = async (req, res) => {
     try {
@@ -61,7 +59,5 @@ const pokemonCreateHandler = async (req, res) => {
         return res.status(404).json( { error: "Error al crear el Pokemon"})
     }
 }
-
-
 
 module.exports = { getPokemonHandler , pokemonsDataHandler, pokemonNameHandler, getPokemonIDHandler, pokemonCreateHandler};

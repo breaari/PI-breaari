@@ -1,4 +1,4 @@
-const { Type } = require("../db"); // Importa el modelo Type desde tu archivo de base de datos (db.js)
+const { Type } = require("../db");
 const axios = require("axios");
 
 // Controlador para obtener y almacenar los tipos de Pokémon
@@ -7,7 +7,7 @@ const getTypes = async () => {
     // Verificar si ya existen tipos en la base de datos
     const existingTypes = await Type.findAll();
 
-    // Si ya existen tipos en la base de datos, simplemente devuelve esos tipos
+    // Si ya existen tipos en la base de datos, devuelve esos tipos
     if (existingTypes.length > 0) {
       return existingTypes;
     }

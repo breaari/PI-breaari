@@ -2,11 +2,8 @@ const axios = require("axios");
 const { Pokemon, Type } = require("../db")
 
 // petición a fuentes externas
-// URL límite 50 pokemon
 const URL = `https://pokeapi.co/api/v2/pokemon`;
 
-
-//! process pokemon es donde se están obteniendo mal los datos y los envía al estado global y se renderixan mal
 const getAllPokemons = async () => {
      try {
      // Obtener pokemons desde la base de datos
@@ -20,25 +17,20 @@ const getAllPokemons = async () => {
       ]
     })
 
-    // obtener pokemons desde la API
     const processedPokemonsDB = pokemonsDB.map((pokemon) => ({
       ...pokemon.toJSON(),
       types: pokemon.Types.map((type) => type.name), // Extraer solo los nombres de los tipos
     }));
-    console.log("proceseedPokemonDB:", processedPokemonsDB)
-
     const pokemonsDBFlat = processedPokemonsDB.flat()
+
+   // obtener pokemons desde la API
     const allPokemons = await axios.get(`${URL}?offset=0&limit=50`)
-    
     const allPokemonsFromAPI = allPokemons.data.results
     const allPokemonsFromAPIFlat = allPokemonsFromAPI.flat()
 
     const finalresponse = pokemonsDBFlat.concat(allPokemonsFromAPIFlat);
-  
-
     return finalresponse
     
-
     } catch (error) {
     console.error("Error en getPokemonsControllers", error);
     throw error;
@@ -50,7 +42,6 @@ const getAllPokemons = async () => {
   let pokemonData;
 
   try {
-
     const responseDB = await Pokemon.findOne({ 
         where: { name: pokemonName },
         include: [
@@ -118,8 +109,6 @@ const getAllPokemons = async () => {
   }
 }
 
-//! dudas, es necesario volver a definir pokemon data cada vez que quiera filtrar en la búsqueda?
-
 const getPokemonID = async(pokemonID) => {
 
   let pokemonData;
@@ -174,8 +163,6 @@ const getPokemonID = async(pokemonID) => {
 const postPokemonCreate = async ({ name, image, hp, attack, defense, speed, height, weight, types }, res) => {
   try {
 
-    const typesArray = types.split(' / ');
-
     // Crear el Pokémon en la base de datos
     const createdPokemon = await Pokemon.create({
       name,
@@ -188,38 +175,15 @@ const postPokemonCreate = async ({ name, image, hp, attack, defense, speed, heig
       weight
     }
     );
-
-    
-
-    // await Promise.all(typesArray.map(async (typeName) => {
-    //   const type = await Type.findOne({ where: { name: typeName } });
-    //   if (type) {
-    //     await createdPokemon.addType(type);
-    //   }
-    // }));
-
-    await Promise.all(typesArray.map(async (typeName) => {
-      // Buscar el tipo en la base de datos
-      let type = await Type.findOne({ where: { name: typeName } });
-      // Si el tipo no existe, créalo
-      if (!type) {
-        type = await Type.create({ name: typeName });
-      }
       // Asociar el tipo al Pokémon
-      await createdPokemon.addType(type);
-    }));
-
+      await createdPokemon.addType(types);
+  
     return ("Pokemon correctamente creado")
   } catch (error) {
     console.error("Error al crear el Pokemon", error);
     throw error;
   }
-};
-
-
-
-
-        
+};    
 
 module.exports = { 
     getAllPokemons,
@@ -228,10 +192,4 @@ module.exports = {
     getPokemonID,
     postPokemonCreate
    };
-    
-    
-
-
-//! handle que hace la petición al controller
-//! controller que hace la petición a la API y devuelve la respuesta
 
