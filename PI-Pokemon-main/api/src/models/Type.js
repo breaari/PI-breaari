@@ -11,9 +11,8 @@ sequelize.define('Type', {
     type: DataTypes.STRING,
     allowNull: false,
   } }, {
-    
+    tableName: 'Type',
     timestamps: false
-
 })
 };
 

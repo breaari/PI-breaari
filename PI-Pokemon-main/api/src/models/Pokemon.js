@@ -44,7 +44,7 @@ module.exports = (sequelize) => {
   },
 },
 {
-  
+  tableName: 'Pokemon',
   timestamps: false, // Si las columnas "createdAt" y "updatedAt" existen en la tabla o no
 
 });

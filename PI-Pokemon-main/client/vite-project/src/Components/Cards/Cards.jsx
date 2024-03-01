@@ -5,14 +5,31 @@ import { useState } from 'react'
 import "../Cards/Cards.css"
 import { FilterOptions, FilterOrigin } from '../Filter/Filter'
 import SortOptions from '../Sorts/Sorts'
+import { useDispatch, useSelector } from 'react-redux'
+import { setRenderData, historyRenderData
+} from "../../redux/pokeSlice"
 
 const Cards = ({ arrayPoke }) => {
 
+  const dispatch = useDispatch();
 // Estado para almacenar lo que habría que renderizar
-const [renderData, setRenderData] = useState([]);
+const renderData = useSelector((state)=>state.pokemon.renderData)
+const history = useSelector((state)=>state.pokemon.historyRenderData)
+
+
 useEffect(() => {
-  setRenderData(arrayPoke);
+  dispatch(setRenderData(arrayPoke));
+  setNumberPage(1)
 }, [arrayPoke]);
+
+useEffect(() => {
+  // Aquí actualizas renderData basado en el estado más reciente
+  dispatch(historyRenderData(renderData))
+  setNumberPage(1)
+}, [renderData]);
+
+console.log("renderData:", renderData)
+console.log("arrayPoke:", arrayPoke)
 
 const [numberPage, setNumberPage] = useState(1);
 const ITEMS_PER_PAGE = 12;
@@ -22,11 +39,11 @@ const startIndex = endIndex - ITEMS_PER_PAGE
 const nextPageHandler = () => {
   setNumberPage(numberPage+1)
 };
-  
+
 const prevPageHandler = () => {
   setNumberPage(numberPage-1)
 };
-  
+
 const goToPageHandler = (pageNumber) => {
   setNumberPage(pageNumber);
 };
@@ -41,7 +58,9 @@ const filteredPoke = useMemo(() => {
 }, [setRenderData, selectedType]);
 
 useEffect(() => {
-  setRenderData(filteredPoke);
+  dispatch(setRenderData(filteredPoke));
+  dispatch(historyRenderData(renderData))
+  setNumberPage(1)
 }, [filteredPoke]);
 
 // Cálculo del número total de páginas
@@ -70,13 +89,15 @@ const onFilterOrigin = (value) => {
     arrayFilteredByOrigin = filteredPoke;
   }
   // Actualiza el estado renderData con los pokemons filtrados por origen
-  setRenderData(arrayFilteredByOrigin);
+  dispatch(setRenderData(arrayFilteredByOrigin));
+  dispatch(historyRenderData(renderData))
+  setNumberPage(1)
 };
- 
+
 const onSortChange = (value) => {
-  
+
   let arraySort = [...renderData]; // Creamos una copia de los datos para no modificar el original
-  
+
     switch (value) {
       case "nameAZ":
         arraySort.sort((a, b) => a.name.localeCompare(b.name)); // Ordena de A a Z según el nombre
@@ -110,11 +131,13 @@ const onSortChange = (value) => {
           }
         });
         break;
-      default: 
+      default:
         break;
     }
-  
-    setRenderData(arraySort);
+
+    dispatch(setRenderData(arraySort));
+    dispatch(historyRenderData(renderData))
+    setNumberPage(1)
 
  };
 

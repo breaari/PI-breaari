@@ -54,7 +54,7 @@
   gap: 0px; 
   width: 300px;
   height: 150px;
-  transform: translate(22.5%, -30%);
+  transform: translate(30%, -30%);
   align-content: flex-start;
   margin-right: 75px;
 }
@@ -80,3 +80,25 @@
   width: 100%;
   text-align: center;
 }
+
+.home-button {
+  position: absolute; /* Agregar posición absoluta */
+  top: 25px; /* Ajustar la posición vertical según sea necesario */
+  left: 40px; /* Ajustar la posición horizontal según sea necesario */
+  background-color: rgba(14, 44, 2, 0.5);
+  border: 1px solid white;
+  border-radius: 4px;
+  width: 100px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden; 
+  transition: transform 0.2s ease; 
+}
+
+.home-button:active {
+  transform: scale(0.9); 
+}
+

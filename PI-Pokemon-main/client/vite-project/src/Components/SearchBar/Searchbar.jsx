@@ -7,8 +7,9 @@ import { useNavigate } from "react-router-dom";
 import Create from "../../assets/Create.png"
 import pokedex from "../../assets/pokedex.png"
 
-const URL = `http://localhost:3001/pokemon/name`
+
 const SearchBar = () => {
+  const URL = `http://localhost:3001/pokemon/name`
 
    const RedirectToCreate = () => {
      navigate("/create")

@@ -13,8 +13,8 @@ const Card = ({ poke }) => {
               <img className= 'image-card' src={image} alt={name}/>
               </Link>
             </div>
-            <h2 className= 'name-card no-underline'>{name}</h2>
-            <p className= 'types-card no-underline'>{types}</p>
+            <h2 className= 'name-card'>{name}</h2>
+            <p className= 'types-card'>{types}</p>
         </div>
 
   );

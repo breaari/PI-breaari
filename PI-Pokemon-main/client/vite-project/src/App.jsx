@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import "../src/App.css";
@@ -5,19 +6,45 @@ import LandingPage from '../src/Views/Landing/landing';
 import Home from '../src/Views/Home/home';
 import Create from "../src/Views/Create/create";
 import Detail from './Views/Detail/detail';
-import { useEffect, useState } from 'react';
-import bulbasaurTransition from '../src/assets/bulbasaurTransition.gif'
 
 function App() {
-  // const [showTransition, setShowTransition] = useState(true);
+  // const [loadingProgress, setLoadingProgress] = useState(0);
 
   // useEffect(() => {
-  //   const timeout = setTimeout(() => {
-  //     setShowTransition(false);
-  //   }, 3000); 
+  //   const totalTime = 5000; // Tiempo total de carga en milisegundos
+  //   const steps = 100; // Número de pasos
+  //   const interval = totalTime / steps; // Intervalo entre pasos
 
-  //   return () => clearTimeout(timeout);
+  //   const simulateLoading = () => {
+  //     let currentProgress = 0;
+  //     const timer = setInterval(() => {
+  //       currentProgress += 1;
+  //       setLoadingProgress((prevProgress) => {
+  //         return currentProgress >= steps ? 100 : prevProgress + 1;
+  //       });
+  //     }, interval);
+
+  //     // Simula la carga completa después de totalTime
+  //     setTimeout(() => {
+  //       clearInterval(timer);
+  //     }, totalTime);
+  //   };
+
+  //   simulateLoading();
+
+  //   // Limpia el temporizador al desmontar el componente
+  //   return () => clearInterval(interval);
   // }, []);
+
+ const [ state, setState ] = useState(false)
+
+  if (!state) {
+
+
+    
+  }
+
+ 
 
   return (
     <>
@@ -25,37 +52,33 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={(
-              // <TransitionGroup>
-              //   {showTransition && (
-              //     <CSSTransition key="transition" classNames="transition" timeout={3000}>
+              <div>
+               
 
-              //     </CSSTransition>
-              //   )}
-              //   <CSSTransition key="landing" classNames="fade" timeout={500}>
-                  <LandingPage />
-            //     </CSSTransition>
-            //   </TransitionGroup>
+                      <LandingPage />
+                      
+
+                      </div>
+                 
             )}/>
             <Route path="/home" element={(
-            //   <TransitionGroup>
-            //     <CSSTransition key="home" classNames="fade" timeout={2000}>
-                  <Home />
-            //     </CSSTransition>
-            //   </TransitionGroup>
+              // <TransitionGroup>
+              //   <CSSTransition key="home" classNames="fade" timeout={500}>
+              //     <div>
+              //       {loadingProgress < 100 ? (
+              //         <div>Loading... {loadingProgress}%</div>
+              //       ) : (
+                      <Home />
+              //       )}
+              //     </div>
+              //   </CSSTransition>
+              // </TransitionGroup>
             )}/>
             <Route path="/create" element={(
-              // <TransitionGroup>
-              //   <CSSTransition key="create" classNames="fade" timeout={2000}>
-                  <Create />
-            //     </CSSTransition>
-            //   </TransitionGroup>
+              <Create />
             )}/>
             <Route path="/detail/:id" element={(
-              // <TransitionGroup>
-              //   <CSSTransition key="detail" classNames="fade" timeout={2000}>
-                  <Detail />
-            //     </CSSTransition>
-            //   </TransitionGroup>
+              <Detail />
             )}/>
           </Routes>
         </BrowserRouter>

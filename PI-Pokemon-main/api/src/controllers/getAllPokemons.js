@@ -175,11 +175,14 @@ const postPokemonCreate = async ({ name, image, hp, attack, defense, speed, heig
       weight
     }
     );
+const algo = await Type.findAll({where : {id: types}});
+    console.log("Types:", types)
       // Asociar el tipo al Pokémon
-      await createdPokemon.addType(types);
+      await createdPokemon.addType(algo);
   
     return ("Pokemon correctamente creado")
   } catch (error) {
+
     console.error("Error al crear el Pokemon", error);
     throw error;
   }

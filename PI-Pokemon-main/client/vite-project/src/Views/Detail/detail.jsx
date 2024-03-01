@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPokemonDetail } from "../../redux/pokeSlice";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "../Detail/detail.css"
 
@@ -10,7 +10,12 @@ const Detail = () => {
     const URL = `http://localhost:3001/pokemon/${id}`;
     const dispatch = useDispatch();
     const pokeDetail = useSelector((state) => state.pokemon.pokemonDetail);
+    const navigate = useNavigate();
 
+    const RedirectToHome = () => {
+        navigate("/home")
+      }
+   
     useEffect(() => {
         const getPokemonData = async () => {
             try {
@@ -42,6 +47,7 @@ const Detail = () => {
                <p className= 'detailInfo'>Weight: {pokeDetail?.weight}</p>
                <p className= 'detailInfo'>Types: {pokeDetail?.types}</p>
             </div>
+                    <button className="home-button" onClick={RedirectToHome}>Home</button>
             </div>
         </div>
             

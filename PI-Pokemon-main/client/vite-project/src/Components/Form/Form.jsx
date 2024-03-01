@@ -41,7 +41,6 @@ const CreateForm = () => {
   const handleTypeChange = async (selectedOptions) => {
     // Valida las opciones seleccionadas
     const { valid, error } = await isValidType(selectedOptions);
-    console.log("valid:", valid)
   
     // Actualiza el estado de error
     setInputError((prevInputError) => ({
@@ -132,26 +131,18 @@ const CreateForm = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-    });
 
-    if (responseBack.status === 200) {
-      // Mostrar mensaje de éxito
-      window.alert('Pokemón creado correctamente!');
-      // Redirigir al home u otra página
-      window.location.href = '/home'; // Cambia '/home' por la URL deseada
-    } else {
-      console.error('Error al enviar datos al servidor', responseBack.data);
-    }
+    });
+    window.alert('Pokemón creado correctamente!');
+    
   } catch (error) {
-    console.error('Error de red', error);
+    window.alert('Error al crear Pokemon')
   }
 };
 
   const optionsTypes = pokemonTypes.map(type => (
     { value: type.id, label: type.name}
   ));
-
-  console.log("inputError:", inputError)
 
   return (
     <div className= 'form-container' >

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import "../Landing/landingStyle.css";
-// import landing from "../assets/landing.mp4";
 import landing from "../../assets/landing.mp4"
 import pokedex from "../../assets/pokedex.png"
 
