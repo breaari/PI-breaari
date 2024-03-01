@@ -2,7 +2,7 @@ import SearchBar from "../../Components/SearchBar/Searchbar"
 import Cards from "../../Components/Cards/Cards"
 import useHome from "../../Hooks/useHome"
 import "../Home/home.css"
-import { historyRenderData } from "../../redux/pokeSlice"
+import { setHistory } from "../../redux/pokeSlice"
 import { useSelector } from "react-redux"
 
 const Home = () => {

@@ -16,7 +16,7 @@ export const FilterOptions = ({ onFilter, arrayPoke }) => {
         onFilter(selectedOption.value);
     } else {
         // Si no hay ninguna opción seleccionada, envía un valor especial al onFilter
-        onFilter(arrayPoke); // Envía una cadena vacía como valor para indicar que se ha eliminado el filtro
+        onFilter(); // Envía una cadena vacía como valor para indicar que se ha eliminado el filtro
     }
     };
 

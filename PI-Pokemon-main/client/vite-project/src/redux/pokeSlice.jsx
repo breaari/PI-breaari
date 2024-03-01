@@ -9,13 +9,20 @@ const pokeSlice = createSlice(
       allTypes: [],
       pokemonDetail: [],
       renderData: [],
-      historyRenderData: []
+      historyRenderData: [],
+      selectedType: null
 
     },
 
     reducers: {
-      historyRenderData: (state,action) => {
-        state.renderData = action.payload;
+
+      setType: (state, action) => {
+        console.log("state selectedType:", state)
+        state.selectedType = action.payload
+      },
+
+      setHistory: (state,action) => {
+        state.historyRenderData= action.payload;
       },
       setRenderData: (state, action) => {
         state.renderData = action.payload;
@@ -46,6 +53,7 @@ const pokeSlice = createSlice(
     getAllPokemons, 
     getPokemonDetail,
     setRenderData,
-    historyRenderData
+    setHistory, 
+    setType
    } = pokeSlice.actions;
   export default pokeSlice.reducer;

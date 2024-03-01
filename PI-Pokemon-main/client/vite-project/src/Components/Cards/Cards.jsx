@@ -6,16 +6,16 @@ import "../Cards/Cards.css"
 import { FilterOptions, FilterOrigin } from '../Filter/Filter'
 import SortOptions from '../Sorts/Sorts'
 import { useDispatch, useSelector } from 'react-redux'
-import { setRenderData, historyRenderData
+import { setRenderData, setHistory, setType
 } from "../../redux/pokeSlice"
 
 const Cards = ({ arrayPoke }) => {
 
-  const dispatch = useDispatch();
+const dispatch = useDispatch();
 // Estado para almacenar lo que habría que renderizar
 const renderData = useSelector((state)=>state.pokemon.renderData)
 const history = useSelector((state)=>state.pokemon.historyRenderData)
-
+const selectedType = useSelector((state)=> state.pokemon.selectedType)
 
 useEffect(() => {
   dispatch(setRenderData(arrayPoke));
@@ -24,7 +24,7 @@ useEffect(() => {
 
 useEffect(() => {
   // Aquí actualizas renderData basado en el estado más reciente
-  dispatch(historyRenderData(renderData))
+  dispatch(setHistory(renderData))
   setNumberPage(1)
 }, [renderData]);
 
@@ -48,18 +48,16 @@ const goToPageHandler = (pageNumber) => {
   setNumberPage(pageNumber);
 };
 
-// Estado para almacenar los tipos seleccionados
-const [selectedType, setSelectedType] = useState(null);
 
 // Función para filtrar los pokemons según el tipo seleccionado
 const filteredPoke = useMemo(() => {
   if (!selectedType) return arrayPoke;
-  return arrayPoke.filter(poke => poke.types?.includes(selectedType));
+  return renderData.filter(poke => poke.types?.includes(selectedType));
 }, [setRenderData, selectedType]);
 
 useEffect(() => {
   dispatch(setRenderData(filteredPoke));
-  dispatch(historyRenderData(renderData))
+  dispatch(setHistory(filteredPoke))
   setNumberPage(1)
 }, [filteredPoke]);
 
@@ -73,9 +71,11 @@ const CardsRender = (data) => {
   return data.map((poke) => <Card poke={poke} key={poke.id} />);
 };
 
-const onFilter = (type)=> {
-  setSelectedType(type);
- }
+ const onFilter = (type)=> {
+  console.log("Type:", type)
+  dispatch(setType(type));
+}
+console.log("selectedType:", selectedType)
 
 const onFilterOrigin = (value) => {
   let arrayFilteredByOrigin = [filteredPoke];
@@ -90,7 +90,7 @@ const onFilterOrigin = (value) => {
   }
   // Actualiza el estado renderData con los pokemons filtrados por origen
   dispatch(setRenderData(arrayFilteredByOrigin));
-  dispatch(historyRenderData(renderData))
+  dispatch(setHistory(arrayFilteredByOrigin))
   setNumberPage(1)
 };
 
@@ -136,7 +136,7 @@ const onSortChange = (value) => {
     }
 
     dispatch(setRenderData(arraySort));
-    dispatch(historyRenderData(renderData))
+    dispatch(setHistory(renderData))
     setNumberPage(1)
 
  };
