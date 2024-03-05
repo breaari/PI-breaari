@@ -3,41 +3,46 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
+  width: 465px;
   height: 90%;
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  background-color: rgba(109, 160, 145, 0.9);
-  border: 5px solid black;
-  border-radius: 30px;
+
+  background-color: rgba(217,217,217, 0.8);
+  border: none;
+  border-radius: 20px;
+}
+.form-create {
+  width: 465px;
+  height: 100%;
 }
 
 .text {
-  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 30px;
+  color: white;
+  text-shadow:
+    -2px -2px 0 rgb(165, 165, 165),  
+    2px -2px 0 rgb(165, 165, 165),  
+    -2px 2px 0 rgb(165, 165, 165),  
+    2px 2px 0 rgb(165, 165, 165);
+    margin-top: 45px;
+ 
 }
 
 .form-create {
   flex: 1; 
   display: flex;
-}
-
-.column-input {
-  flex:1;
-  width: 50%; 
-  display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
-.column-error {
-  flex: 1;
-  width: 50%; 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.error.invalid-error.names,
+.error.valid-error.names {
+
+transform: translateX(-27px);
+width: 300px;
 }
 
 .error {
@@ -45,13 +50,14 @@
   border-radius: 20px;
   font-size: 15px;
   height: 15px;
-  width: 275px;
-  margin-bottom: -1px;
+  width: 150px;
   font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .error:first-child {
-  margin-top: -5px; 
+  margin-top: 0px; 
 }
 
 .valid-error {
@@ -60,43 +66,60 @@
 
 .invalid-error {
   color: rgb(138, 11, 11); 
+  
 }
 
-.invalid-error::before {
-  content: '❌'; 
-  margin-right: 5px; 
+
+[class^="inputt"] {
+  padding: 10px;
+  background-color: rgba(0,0,0, 0.25);
+  width: 150px;
+  border: none;
+  border-radius: 12px;
 }
 
-.valid-error::before {
-  content: '✅'; 
-  margin-right: 5px; 
+.container-name {
+  flex: 1;
+  width: auto;
+  height: 100px !important;
+
 }
 
-.inputt {
-  padding: 8px;
-  border: 1px solid #dadada;
-  border-radius: 4px;
-  width: 250px;
-  height: 35px;
-  box-sizing: border-box;
-  margin-bottom: 10px;
+.inputt-name {
+  width: 300px;
+  transform: translateX(-23px);
+  margin-top: 25px;
 }
 
-.inputt::placeholder {
-  color: #777;
+.container-container {
+ display:flex ;
+
+}
+
+.container-1 {
+  margin-right: 12.5px;
+}
+.container-2 {
+  margin-left: 12.5px;
+}
+
+
+[class^="inputt"]::placeholder {
+  color: white;
   font-style: cursive;
 }
 
 .select-types33 {
-  width: 250px;
+  width: 168px;
 }
 
 .create-pokemon {
-  color: #777;
+  color: white;
   width: 150px;
-  height: 35px;
+  height: 50px;
   margin-top:20px;
-  background-color: white;
-  border: 1px solid #dadada;
-  border-radius: 4px;
+  background-color: rgba(56,130,176,0.6);
+  font-size: 15px;
+  border: none;
+  border-radius: 20px;
 }

@@ -17,9 +17,16 @@ const renderData = useSelector((state)=>state.pokemon.renderData)
 const history = useSelector((state)=>state.pokemon.historyRenderData)
 const selectedType = useSelector((state)=> state.pokemon.selectedType)
 
-useEffect(() => {
+useEffect((selectedOption) => {
+  if (!selectedType) {
   dispatch(setRenderData(arrayPoke));
   setNumberPage(1)
+  }
+  else {
+    dispatch(setRenderData(history))
+    
+
+  }
 }, [arrayPoke]);
 
 useEffect(() => {
@@ -52,7 +59,7 @@ const goToPageHandler = (pageNumber) => {
 // Función para filtrar los pokemons según el tipo seleccionado
 const filteredPoke = useMemo(() => {
   if (!selectedType) return arrayPoke;
-  return renderData.filter(poke => poke.types?.includes(selectedType));
+  return arrayPoke.filter(poke => poke.types?.includes(selectedType));
 }, [setRenderData, selectedType]);
 
 useEffect(() => {

@@ -147,30 +147,39 @@ const CreateForm = () => {
   return (
     <div className= 'form-container' >
       <form className= 'form-create' onSubmit={handleSubmit}>
-        <div className="column-input">
-          <h1 className= 'text'>Create your Pokémon!</h1>
-          <input className='inputt' name='name' value={input.name} onChange={handleChange} placeholder= '  Name'></input>
-          <input className='inputt' name='image' value={input.image} onChange={handleChange} placeholder='  Image'></input>
-          <input className='inputt' name='hp' value={input.hp} onChange={handleChange} placeholder='  HP'></input>
-          <input className='inputt' name='attack' value={input.attack} onChange={handleChange} placeholder='  Attack'></input>
-          <input className='inputt' name='defense' value={input.defense} onChange={handleChange} placeholder='  Defense'></input>
-          <input className='inputt' name='speed' value={input.speed} onChange={handleChange} placeholder='  Speed'></input>
-          <input className='inputt' name='height' value={input.height} onChange={handleChange} placeholder='  Height'></input>
-          <input className='inputt' name='weight' value={input.weight} onChange={handleChange} placeholder='  Weight'></input>
-          <Select className= 'select-types33' name= "types" menuPlacement= 'auto' options = {optionsTypes} onChange={ handleTypeChange} value ={ optionsTypes.id } placeholder= '  Types'></Select>
-          <button className='create-pokemon' type="submit">Create</button>
-        </div>
-        <div className='column-error'>
-          {inputError.name && <p className={`error ${inputError.name.valid ? 'valid-error' : 'invalid-error'}`}>{inputError.name.error}</p>}
+        
+          <h1 className= 'text'>Create your own Pokémon!</h1>
+
+          
+          <input className='inputt-name' name='name' value={input.name} onChange={handleChange} placeholder= '  Name'></input>
+          {inputError.name && <p className={`error ${inputError.name.valid ? 'valid-error' : 'invalid-error'} names`}>{inputError.name.error}</p>}
+      
+          <div className='container-container'>
+          <div className='container-1'>
+          <input className='inputt-image' name='image' value={input.image} onChange={handleChange} placeholder='  Image'></input>
           {inputError.image && <p className={`error ${inputError.image.valid ? 'valid-error' : 'invalid-error'}`}>{inputError.image.error}</p>}
+          <input className='inputt-hp' name='hp' value={input.hp} onChange={handleChange} placeholder='  HP'></input>
           {inputError.hp && <p className={`error ${inputError.hp.valid ? 'valid-error' : 'invalid-error'}`}>{inputError.hp.error}</p>}
+          <input className='inputt-attack' name='attack' value={input.attack} onChange={handleChange} placeholder='  Attack'></input>
           {inputError.attack && <p className={`error ${inputError.attack.valid ? 'valid-error' : 'invalid-error'}`}>{inputError.attack.error}</p>}
+          <input className='inputt-defense' name='defense' value={input.defense} onChange={handleChange} placeholder='  Defense'></input>
           {inputError.defense && <p className={`error ${inputError.defense.valid ? 'valid-error' : 'invalid-error'}`}>{inputError.defense.error}</p>}
+          </div>
+          <div className='container-2'>
+          <input className='inputt-speed' name='speed' value={input.speed} onChange={handleChange} placeholder='  Speed'></input>
           {inputError.speed && <p className={`error ${inputError.speed.valid ? 'valid-error' : 'invalid-error'}`}>{inputError.speed.error}</p>}
+          <input className='inputt-height' name='height' value={input.height} onChange={handleChange} placeholder='  Height'></input>
           {inputError.height && <p className={`error ${inputError.height.valid ? 'valid-error' : 'invalid-error'}`}>{inputError.height.error}</p>}
+          <input className='inputt-weight' name='weight' value={input.weight} onChange={handleChange} placeholder='  Weight'></input>
           {inputError.weight && <p className={`error ${inputError.weight.valid ? 'valid-error' : 'invalid-error'}`}>{inputError.weight.error}</p>}
+          <Select className= 'select-types33' name= "types" menuPlacement= 'auto' options = {optionsTypes} onChange={ handleTypeChange} value ={ optionsTypes.id } placeholder= '  Types'></Select>
           {inputError.types && <p className={`error ${inputError.types.valid ? 'valid-error' : 'invalid-error'}`}>{inputError.types.error}</p>}
-    </div>
+          </div>
+          </div>
+          <button className='create-pokemon' type="submit">Create!</button>
+         
+          
+ 
     </form>
     </div>
   );

@@ -2,8 +2,11 @@ import React from 'react';
 import Select from 'react-select';
 import useTypes from '../../Hooks/useTypes';
 import '../Filter/Filter.css';
+import { setType } from "../../redux/pokeSlice"
+import { useSelector } from 'react-redux';
 
 export const FilterOptions = ({ onFilter, arrayPoke }) => {
+    const selectedType = useSelector((state)=> state.pokemon.selectedType)
     const pokemonTypes = useTypes();
     const optionsTypes = pokemonTypes.map(type => ({
         value: type.name,
@@ -24,7 +27,7 @@ export const FilterOptions = ({ onFilter, arrayPoke }) => {
         <div className='select-container'>
             <Select
                 className='select-types'
-                
+                selectedOption = { selectedType }
                 options={optionsTypes}
                 onChange={handleChange}
                 placeholder="Types"
